@@ -13,8 +13,8 @@
 
 (J-Bob/step (prelude)
             '(atom (cdr (cons (car (cons p q)) '())))
-            '(((1 1 1) (car/cons p q))
-              ((1) (cdr/cons p '()))
+            '(((1 1 1) (car/cons p q))  ; '(atom (cdr (cons p '())))
+              ((1) (cdr/cons p '()))    ; '(atom ())
               (() (atom '()))))         ; 't
 
 ;; Equal theorem
@@ -24,11 +24,14 @@
 (dethm equal-swap (x y)
        (equal (eqaul x y) (equal y x)))
 
+(dethm equal-if (x y)
+       (if (equal x y) (equal x y) 't))
+
 (J-Bob/step (prelude)
             '(car
               (cons (equal (cons x y) (cons x y))
                     '(and crumpets)))
-            '(((1 1) (equal-same (cons x y)))
+            '(((1 1) (equal-same (cons x y))) ; '(car (cons 't '(and crumpets)))
               (() (car/cons 't '(and crumpets))))) ; 't
 
 (J-Bob/step (prelude)
