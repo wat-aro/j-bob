@@ -34,3 +34,13 @@
 (J-Bob/step (prelude)
             '(atom (car (cons (car a) (cdr b))))
             '(((1) (car/cons (car a) (cdr b))))) ; '(atom (car a))
+
+;; If theorem
+(dethm if-true (x y)
+       (equal (if 't x y) x))
+
+(dethm if-false (x y)
+       (equal (if 'nil x y) y))
+
+(dethm if-same (x y)
+       (equal (if x y y) y))
