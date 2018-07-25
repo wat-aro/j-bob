@@ -47,3 +47,11 @@
 
 (dethm if-same (x y)
        (equal (if x y y) y))
+
+(J-Bob/step (prelude)
+            '(if (if (equal a 't)
+                     a
+                     (equal 'or '(black coffee)))
+                 c
+                 c)
+            '(((Q A) (equal-if  a 't))))
