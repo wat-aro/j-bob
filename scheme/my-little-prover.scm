@@ -11,6 +11,11 @@
 (dethm cdr/cons (x y)
        (equal (cdr (cons x y)) y))
 
+(dethm cons/car+cdr (x)
+       (if (atom x)
+           't
+           (equal (cons (car x) (cdr x)) x)))
+
 (J-Bob/step (prelude)
             '(atom (cdr (cons (car (cons p q)) '())))
             '(((1 1 1) (car/cons p q))  ; '(atom (cdr (cons p '())))
